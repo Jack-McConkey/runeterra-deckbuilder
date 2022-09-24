@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    gap: 1rem;
+    margin-right: auto;
+}
+
+.card-info-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.param-title {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.img {
+    margin-right: auto;
+    display: flex;
+}
+
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .img {
+        justify-content: center;
+    }
+}

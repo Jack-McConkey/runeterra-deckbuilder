@@ -1,0 +1,51 @@
+.btn {
+    background: var(--accent);
+    border-radius: 8px;
+    border: none;
+    color: var(--primary-dark);
+    font-weight: 600;
+    font-size: 1.6rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.clear {
+    background: var(--primary-dark);
+    color: var(--accent);
+}
+
+.absolute-close {
+    background: var(--accent);
+    color: var(--primary-dark);
+    position: absolute;
+    display: grid;
+    top: 10px;
+    right: 10px;
+}
+
+.related-card {
+    color: var(--neutral);
+    background: none;
+}
+
+.region-error {
+    background: var(--primary-dark);
+
+    color: var(--neutral);
+}
+
+.btn:disabled {
+    background: var(--primary-dark);
+    cursor: not-allowed;
+    color: var(--neutral);
+    opacity: 0.5;
+}
+
+@media (hover: hover) {
+    .btn:hover {
+        transform: scale(1.01);
+    }
+    .btn:disabled {
+        transform: scale(1);
+    }
+}

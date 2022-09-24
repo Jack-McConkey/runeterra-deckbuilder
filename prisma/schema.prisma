@@ -1,0 +1,34 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  shadowDatabaseUrl    = env("SHADOW_DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+model Cards {
+  id       String @id @default(uuid())
+  cardCode String
+  card     Json
+}
+
+model Decks {
+  id            String          @id @default(uuid())
+  deckCode      String
+  selectedCards SelectedCards[]
+}
+
+model SelectedCards {
+  id       String  @id @default(uuid())
+  cardCode String
+  count    Int
+  Deck     Decks?  @relation(fields: [deckId], references: [id])
+  deckId   String?
+}

@@ -1,0 +1,15 @@
+.container {
+    max-width: 1440px;
+    width: 98%;
+    margin-inline: auto;
+    color: var(--accent);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-block: 3rem;
+}
+
+@media (max-width: 800px) {
+    .container {
+        width: 90%;
+    }
+}

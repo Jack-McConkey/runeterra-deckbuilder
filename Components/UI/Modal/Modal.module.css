@@ -1,0 +1,142 @@
+.backdrop {
+    position: fixed;
+    width: 100%;
+    min-height: 100vh;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    animation: fade-in 0.5s ease;
+}
+
+.base-modal {
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
+    margin-top: 20rem;
+    padding: 2rem;
+    width: clamp(600px, 900px, 60vw);
+    height: max-content;
+    border-radius: 8px;
+    background-color: var(--primary-dark);
+    color: var(--neutral);
+    gap: 1rem;
+    position: fixed;
+    inset: 0;
+    overflow-y: auto;
+}
+
+.detailed-card-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-inline: auto;
+    margin-top: 20rem;
+    padding: 2rem;
+    width: clamp(600px, 900px, 60vw);
+    height: max-content;
+    border-radius: 8px;
+    background-color: var(--primary-dark);
+    color: var(--neutral);
+    gap: 1rem;
+    position: fixed;
+    inset: 0;
+    overflow-y: auto;
+}
+
+.filters-modal {
+    position: fixed;
+    height: fit-content;
+    width: 60%;
+    inset: 0;
+    margin-inline: auto;
+    margin-top: 20rem;
+    border-radius: 8px;
+    padding: 2rem;
+    color: var(--neutral);
+    background-color: var(--primary-dark);
+    z-index: 1000;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.deck-info-modal {
+    background-color: var(--primary-dark);
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: var(--neutral);
+    width: fit-content;
+    margin-inline: auto;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 10rem;
+}
+
+.save-deck-modal {
+    position: fixed;
+    height: fit-content;
+    width: fit-content;
+    inset: 0;
+    margin-inline: auto;
+    margin-top: 20rem;
+    border-radius: 8px;
+    padding: 2rem;
+    color: var(--neutral);
+    background-color: var(--primary-dark);
+    z-index: 1000;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.backdrop.closed {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .base-modal {
+        width: 100%;
+        margin: 0;
+        height: 100vh;
+        overflow-y: auto;
+    }
+    .nav-modal {
+        background-color: var(--primary-dark);
+        inset: 0;
+        position: fixed;
+        display: flex;
+        width: 60%;
+        margin-left: auto;
+        padding: 1.5rem;
+        animation: slide-in 0.5s ease-in;
+    }
+
+    .save-deck-modal {
+        height: fit-content;
+        margin-block: auto;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        transform: translateX(50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

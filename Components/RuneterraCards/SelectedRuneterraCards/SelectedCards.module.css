@@ -1,0 +1,156 @@
+/* Selected Cards */
+
+.selected_container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: clamp(35rem, 100%, 55rem);
+    max-height: 87vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.counter {
+    color: var(--secondary-dark);
+    font-weight: bold;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background-color: var(--accent);
+    border-radius: 4px;
+    padding: 0.5rem;
+}
+
+.mini-card-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    border: 1px solid var(--secondary-dark);
+    border-radius: 4px;
+    animation: slide-in 0.7s ease-in;
+}
+
+.img_container {
+    position: relative;
+    display: flex;
+    opacity: 0;
+    animation: fade-in 0.6s ease 0.7s forwards;
+}
+
+.mini-card-art {
+    width: 90%;
+    height: 4rem;
+    object-fit: cover;
+}
+
+.more-info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.034);
+    border: none;
+    cursor: pointer;
+}
+
+.invalid-region {
+    background: rgba(0, 0, 0, 0.9);
+    gap: 1rem;
+    cursor: auto;
+}
+
+.invalid-region-text {
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.info {
+    display: flex;
+    gap: 1rem;
+    color: var(--primary-text);
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 2px;
+    z-index: 10;
+    gap: 0.1rem;
+}
+
+.btn {
+    flex-basis: 100%;
+    background: var(--primary-dark);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.142);
+    padding-inline: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:disabled {
+    transform: scale(1);
+    cursor: not-allowed;
+    background: var(--secondary-dark);
+    opacity: 0.5;
+}
+
+@media (hover: hover) {
+    .more-info:hover {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .more-info:hover > span > * {
+        filter: invert();
+    }
+
+    .invalid-region:hover {
+        background: rgba(0, 0, 0, 0.9);
+    }
+    .btn:hover {
+        transform: scale(1.02);
+    }
+}
+
+@media (max-width: 800px) {
+    .selected_container {
+        margin-inline: auto;
+        max-height: 16rem;
+        overflow-y: auto;
+    }
+
+    .detailed-card-modal {
+        overflow-y: scroll;
+        width: 100vw;
+    }
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

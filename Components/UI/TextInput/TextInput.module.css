@@ -1,0 +1,15 @@
+.input-container {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+.input {
+    font: inherit;
+    font-weight: 600;
+    background: none;
+    border: none;
+    border-bottom: 2px solid var(--primary-dark);
+    padding-left: 0.5rem;
+    color: var(--accent);
+}
