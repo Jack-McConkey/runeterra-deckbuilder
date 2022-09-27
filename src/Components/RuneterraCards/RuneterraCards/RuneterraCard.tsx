@@ -16,7 +16,11 @@ export default function Card({card, handleCardClick, hidden, validSelection}: Ca
     if (!validSelection) containerStyles += ` ${styles.invalid}`;
 
     return (
-        <button onClick={handleCardClick} className={containerStyles}>
+        <button
+            data-cname={card.name}
+            data-cost={card.cost}
+            onClick={handleCardClick}
+            className={containerStyles}>
             {useMemo(() => {
                 return (
                     <Image
@@ -27,8 +31,7 @@ export default function Card({card, handleCardClick, hidden, validSelection}: Ca
                         style={{height: "auto", width: "100%"}}
                         height={376}
                         width={250}
-                        placeholder="blur"
-                        blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII="
+                        priority={card.rarity === "Champion"}
                     />
                 );
             }, [])}
