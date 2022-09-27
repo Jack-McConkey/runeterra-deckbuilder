@@ -79,6 +79,7 @@ export default function Modal({
     return (
         <ClientOnlyPortal selector="#modal">
             <div
+                aria-modal={true}
                 onClick={e => {
                     e.preventDefault();
                     handleClose();

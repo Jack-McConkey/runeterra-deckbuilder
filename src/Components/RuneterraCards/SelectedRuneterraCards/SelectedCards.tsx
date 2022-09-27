@@ -6,7 +6,6 @@ import {useState} from "react";
 import DetailedRuneterraCard from "../DetailedRuneterraCard/DetailedRuneterraCard";
 import Button from "../../UI/Button/Button";
 import {trpc} from "../../../utils/trpc";
-import RuneterraCardGrid from "../RuneterraCards/RuneterraCardGrid";
 
 interface CardProps {
     card: RuneterraCard;
@@ -69,7 +68,7 @@ export default function SelectedCards({card, count, updateSelectedCards, validRe
                     src={`https://res.cloudinary.com/dqppxtwa1/image/upload/cards/${card.set.toLowerCase()}/${
                         card.cardCode
                     }-full.webp`}
-                    alt={`Image of Runeterra Card ${card.name}`}
+                    alt={`Image of Runeterra Card: ${card.name}`}
                     width="550px"
                     height="80px"
                     loading="eager"
@@ -98,7 +97,7 @@ export default function SelectedCards({card, count, updateSelectedCards, validRe
                                 src={
                                     "https://res.cloudinary.com/dqppxtwa1/image/upload/v1663859711/icons/eye_rcpks3.png"
                                 }
-                                alt={`Image of Runeterra Card ${card.name}`}
+                                alt={`Image of an eye shaped icon`}
                                 width="50px"
                                 height="50px"
                             />

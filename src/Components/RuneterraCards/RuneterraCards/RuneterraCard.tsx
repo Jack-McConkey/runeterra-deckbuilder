@@ -17,6 +17,7 @@ export default function Card({card, handleCardClick, hidden, validSelection}: Ca
 
     return (
         <button
+            aria-roledescription="Adds card to deck"
             data-cname={card.name}
             data-cost={card.cost}
             onClick={handleCardClick}
@@ -28,10 +29,11 @@ export default function Card({card, handleCardClick, hidden, validSelection}: Ca
                         src={`https://res.cloudinary.com/dqppxtwa1/image/upload/cards/${card.set.toLowerCase()}/${
                             card.cardCode
                         }.webp`}
+                        alt={`Image of Runeterra Card: ${card.name}`}
                         style={{height: "auto", width: "100%"}}
                         height={376}
                         width={250}
-                        priority={card.rarity === "Champion"}
+                        priority={card.rarity === "Champion" && card.cost < 3}
                     />
                 );
             }, [])}

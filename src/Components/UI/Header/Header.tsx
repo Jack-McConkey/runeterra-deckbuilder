@@ -2,20 +2,19 @@ import {useState} from "react";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import styles from "./Header.module.css";
+import Link from "next/link";
 
 function NavList({styling}: {styling: "modal" | "standard"}) {
     return (
         <ul className={styles[`nav-list-${styling}`]}>
             <li className={styles["nav-list__item"]}>
-                <a className={styles["nav-list__link"]} rel="stylesheet" href="#">
-                    Cards
-                </a>
+                <Link href={"/"}>
+                    <a className={styles["nav-list__link"]} rel="stylesheet">
+                        Deck Builder
+                    </a>
+                </Link>
             </li>
-            <li className={styles["nav-list__item"]}>
-                <a className={styles["nav-list__link"]} rel="stylesheet" href="#">
-                    Deck Builder
-                </a>
-            </li>
+
             <li className={styles["nav-list__item"]}>
                 <a className={styles["nav-list__link"]} rel="stylesheet" href="#">
                     Decks
