@@ -1,0 +1,35 @@
+.card-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-height: 376px;
+    max-width: 250px;
+    background: none;
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.02s ease-in;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.hover {
+    position: absolute;
+    bottom: 25%;
+}
+.invalid {
+    filter: grayscale();
+    cursor: not-allowed;
+}
+
+@media (hover: hover) {
+    .card-container:hover {
+        transform: scale(1.02);
+    }
+
+    .invalid:hover {
+        transform: scale(1);
+    }
+}

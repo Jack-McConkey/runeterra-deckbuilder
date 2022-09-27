@@ -15,6 +15,6 @@
         "jsx": "preserve",
         "incremental": true
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "utils/getCardData.ts"],
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/utils/getCardData.ts"],
     "exclude": ["node_modules"]
 }
