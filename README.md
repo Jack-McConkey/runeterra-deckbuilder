@@ -1,34 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Project Description
 
-## Getting Started
+I built this app as a portfolio project, this app allows the user to create a deck from the popular online card game, Legends of Runeterra. Upon creating a deck, the user will be able to copy a deckcode which can be used in the game to import the deck they have just created.
 
-First, run the development server:
+## Main Technologies / Packages
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+-   React
+-   Typescript
+-   Next JS
+-   Prisma
+-   tRPC
+-   lor-deckcode-ts - https://github.com/jcuker/lor-deckcode-ts
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Hightlights
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+I tried out NextJS, Prisma and tRPC for the first time in this project and found these technologies very fun to work with. tRPC in particular made the API routes very easy to work with and I was only scratching the surface of what it can do in this project, I look forward to working with it more in future projects.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Challenges
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The major challenge in this project was performance. The game currently has well over 1500 cards and rerendering these cards was causing major slowdown in the app. In the early stages a rerender of the cards container was taking more than 700ms which felt laggy and was very noticable for me. In addition the image load times were fairly slow as the images came in large PNG files orginally.
 
-## Learn More
+The cards container had to be rerendered for several reasons, for example whenever a use filters for a specific set of cards, whenever a use adds a card to the deck etc so these rerenders were happening consistently as a fundamental part of the app.
 
-To learn more about Next.js, take a look at the following resources:
+Once I noticed this issue I started looking through the react profiler and found that a major part of the performance impact was coming from the NextJS image component being rerendered. The Image component did not need any new props after its initial render so I addressed this issue using the useMemo hook on the Image components.
 
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This change on its own drastically improved the performance of the app, reducing the rerender time by over half but I still felt it was too slow, it was at this point that I rehosted the card images via cloudinary in webp format. I found the several other performance impacts while diving into the app.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The DOM size was significant with well over 10000 DOM elements being present, the main factor causing the large size was wrapping elements, I stripped down the card componets of all unnecessary elements and used the Next Future Image component, this component is experimental but has no wrapping elements, as a result I was able to get the DOM size down to just 3000 elements while maintaining all the cards in the DOM.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+I was also unmounting and remounting cards based on the filters which was negating the useMemo so I moved to a CSS approach to hide the cards rather than unmounting. I could probably continue adding more information on the tiny tweaks I made but the end result is that a rerender of the cards container now takes between 20-50ms and feels extremely snappy when filtering.
