@@ -32,6 +32,7 @@ export default function DetailedRuneterraCard({
                             relatedCards ? relatedCards[currentCardCode].name : card.name
                         }`}
                         blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII="
+                        unoptimized={true}
                     />
                 </div>
             </div>

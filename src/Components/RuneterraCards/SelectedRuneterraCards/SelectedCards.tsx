@@ -76,6 +76,7 @@ export default function SelectedCards({card, count, updateSelectedCards, validRe
                     width="550px"
                     height="80px"
                     loading="eager"
+                    unoptimized={true}
                 />
                 {!validRegion && (
                     <div className={[styles["more-info"], styles["invalid-region"]].join(" ")}>
@@ -104,6 +105,7 @@ export default function SelectedCards({card, count, updateSelectedCards, validRe
                                 alt={`Image of an eye shaped icon`}
                                 width="50px"
                                 height="50px"
+                                unoptimized={true}
                             />
                         </button>
                         <span className={styles.counter} color="white">{`${count}/3`}</span>

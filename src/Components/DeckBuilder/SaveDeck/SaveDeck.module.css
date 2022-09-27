@@ -28,3 +28,9 @@
     border-bottom: 1px solid var(--accent);
     color: var(--neutral);
 }
+
+@media (max-width: 800px) {
+    .deck-code-container {
+        flex-direction: column;
+    }
+}

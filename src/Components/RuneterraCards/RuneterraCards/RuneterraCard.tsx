@@ -36,6 +36,7 @@ export default function Card({card, handleCardClick, hidden, validSelection, cou
                         height={376}
                         width={250}
                         priority={card.rarity === "Champion" && card.cost < 3}
+                        unoptimized={true}
                     />
                 );
             }, [])}

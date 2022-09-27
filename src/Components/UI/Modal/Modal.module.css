@@ -119,6 +119,11 @@
         height: fit-content;
         margin-block: auto;
     }
+
+    .deck-info-modal {
+        height: fit-content;
+        margin-block: auto;
+    }
 }
 
 @keyframes fade-in {
