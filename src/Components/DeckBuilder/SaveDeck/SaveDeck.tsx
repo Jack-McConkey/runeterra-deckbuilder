@@ -48,7 +48,12 @@ export default function SaveDeck({
                             <label className={styles.label} htmlFor="deck-code">
                                 Deck Code
                             </label>
-                            <input className={styles.input} type="text" value={deckCode} />
+                            <input
+                                className={styles.input}
+                                type="text"
+                                value={deckCode}
+                                readOnly={true}
+                            />
                         </div>
                         <Button handleClick={copyToClipboard} styling="clear" isDisabled={false}>
                             {copiedCode ? "Copied" : "Copy"}

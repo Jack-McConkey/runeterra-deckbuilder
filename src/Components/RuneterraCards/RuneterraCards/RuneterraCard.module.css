@@ -11,6 +11,18 @@
     cursor: pointer;
 }
 
+.counter {
+    color: var(--secondary-dark);
+    font-weight: bold;
+    font-size: 1.6rem;
+    position: absolute;
+    top: 5%;
+    right: 3%;
+    background-color: var(--accent);
+    border-radius: 4px;
+    padding: 0.5rem;
+}
+
 .hidden {
     display: none;
 }

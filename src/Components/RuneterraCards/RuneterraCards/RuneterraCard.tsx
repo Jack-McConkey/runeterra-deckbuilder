@@ -8,9 +8,10 @@ interface CardProps {
     handleCardClick: () => void;
     hidden: boolean;
     validSelection: boolean;
+    count: number;
 }
 
-export default function Card({card, handleCardClick, hidden, validSelection}: CardProps) {
+export default function Card({card, handleCardClick, hidden, validSelection, count}: CardProps) {
     let containerStyles = styles["card-container"];
     if (hidden) containerStyles += ` ${styles.hidden}`;
     if (!validSelection) containerStyles += ` ${styles.invalid}`;
@@ -22,6 +23,7 @@ export default function Card({card, handleCardClick, hidden, validSelection}: Ca
             data-cost={card.cost}
             onClick={handleCardClick}
             className={containerStyles}>
+            {count > 0 && <span className={styles.counter} color="white">{`${count}/3`}</span>}
             {useMemo(() => {
                 return (
                     <Image

@@ -14,6 +14,10 @@ interface CardProps {
     validRegion: boolean;
 }
 
+export function CardCounter({count}: {count: number}) {
+    return <span className={styles.counter} color="white">{`${count}/3`}</span>;
+}
+
 export default function SelectedCards({card, count, updateSelectedCards, validRegion}: CardProps) {
     const [showCardDetails, setShowCardDetails] = useState("");
     const openModal = (e: any, cardCode: string) => {

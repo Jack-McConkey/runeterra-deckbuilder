@@ -98,6 +98,7 @@ export default function RuneterraCardsContainer({
                 validSelection={validSelection}
                 card={card}
                 key={card.cardCode}
+                count={selectedCards[card.cardCode] ? selectedCards[card.cardCode].count : 0}
                 handleCardClick={() =>
                     cardClickHandler(card.cardCode, validSelection, notificationMessage)
                 }
