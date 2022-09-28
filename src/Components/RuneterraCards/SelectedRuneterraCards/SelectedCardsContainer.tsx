@@ -14,9 +14,8 @@ export default function SelectedCardsContainer({
     selectedCards,
     updateSelectedCards,
 }: ContainerProps) {
-    const cards = useContext(CardContext);
+    const cards = useContext(CardContext)!;
 
-    if (!cards) return null;
     const {regions} = deckDetails(cards, selectedCards);
     return (
         <div className={styles["selected_container"]}>

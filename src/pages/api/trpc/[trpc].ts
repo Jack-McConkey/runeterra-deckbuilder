@@ -5,19 +5,6 @@ import {prisma} from "../../../db/client";
 
 export const t = initTRPC.create();
 export const appRouter = t.router({
-    newDeck: t.procedure
-        .input(
-            z.object({
-                deckCode: z.string(),
-                cards: z.string(),
-            })
-        )
-        .query(({input}) => {
-            console.log(input.deckCode);
-            return {
-                deckCode: `${input.deckCode}`,
-            };
-        }),
     addDeck: t.procedure
         .input(
             z.object({
@@ -37,7 +24,7 @@ export const appRouter = t.router({
                     },
                 },
             });
-            return {hello: `world`};
+            return {newDeck};
         }),
     relatedCards: t.procedure
         .input(
@@ -46,10 +33,12 @@ export const appRouter = t.router({
             })
         )
         .query(async ({input}) => {
+            const parsedInput = JSON.parse(input.relatedCards);
+            if (parsedInput.length === 0) return [];
             const relatedCards = await prisma.cards.findMany({
                 where: {
                     cardCode: {
-                        in: JSON.parse(input.relatedCards),
+                        in: parsedInput,
                     },
                 },
             });

@@ -22,8 +22,7 @@ export default function MiniDeckOverview({
     deckInfo: DeckInformation;
     selectedCards: SelectedCard;
 }) {
-    const cards = useContext(CardContext);
-    if (!cards) return null;
+    const cards = useContext(CardContext)!;
 
     const cardCosts = generateCostData(cards, selectedCards);
 

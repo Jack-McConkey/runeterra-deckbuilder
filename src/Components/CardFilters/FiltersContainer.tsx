@@ -5,15 +5,17 @@ import Modal from "../UI/Modal/Modal";
 import styles from "./CardFilters.module.css";
 import Button from "../UI/Button/Button";
 
+interface FiltersContainerProps {
+    filters: FilterOptions;
+    updateFilters: (filterCategory: string, filterOption: string | number) => void;
+    closeFilters: () => void;
+}
+
 export default function FiltersContainer({
     filters,
     updateFilters,
     closeFilters,
-}: {
-    filters: FilterOptions;
-    updateFilters: (filterCategory: string, filterOption: string | number) => void;
-    closeFilters: () => void;
-}) {
+}: FiltersContainerProps) {
     return (
         <Modal style="filters-modal" handleClose={closeFilters}>
             <>

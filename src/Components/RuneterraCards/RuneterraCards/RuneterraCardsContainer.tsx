@@ -47,8 +47,7 @@ export default function RuneterraCardsContainer({
         };
     }, [notifications]);
 
-    const cards = useContext(CardContext);
-    if (!cards) return null;
+    const cards = useContext(CardContext)!;
 
     const filterInvalidCards = () => {
         if (deckInformation?.regions.length === 2 && filters.regions.length === 0) {

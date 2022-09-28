@@ -16,9 +16,7 @@ export default function DeckBuilder() {
     const [showDetailedDeckInformation, setShowDetailedDeckInformation] = useState(false);
     const [showSaveWindow, setShowSaveWindow] = useState(false);
 
-    const cards = useContext(CardContext);
-
-    if (!cards) return null;
+    const cards = useContext(CardContext)!;
 
     const info = deckDetails(cards, selectedCards);
 

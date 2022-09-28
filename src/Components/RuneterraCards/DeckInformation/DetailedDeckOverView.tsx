@@ -1,16 +1,12 @@
 import {useContext} from "react";
 import {CardContext} from "../../Contexts/CardContext";
-import {DeckInformation, SelectedCard} from "../../DeckBuilder/types";
+import {SelectedCard} from "../../DeckBuilder/types";
 import SelectedCards from "../SelectedRuneterraCards/SelectedCards";
 import styles from "./DeckInfo.module.css";
 
-export default function DetailedDeckOverview({
-    selectedCards,
-    deckInfo,
-}: {
-    selectedCards: SelectedCard;
-    deckInfo: DeckInformation;
-}) {
+//Currently unused components
+
+export default function DetailedDeckOverview({selectedCards}: {selectedCards: SelectedCard}) {
     const cards = useContext(CardContext)!;
     const preparedCards = Object.entries(selectedCards).reduce<{[key: string]: JSX.Element[]}>(
         (elements, [cardCode, {count}]) => {
@@ -30,6 +26,7 @@ export default function DetailedDeckOverview({
                 cards[cardCode].type === "Equipment"
                     ? `${cards[cardCode].type}`
                     : `${cards[cardCode].type}s`;
+
             elements[type].push(
                 <SelectedCards
                     card={cards[cardCode]}

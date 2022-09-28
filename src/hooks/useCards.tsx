@@ -1,6 +1,8 @@
 import {useEffect, useState} from "react";
 import {RuneterraCard} from "../Components/DeckBuilder/types";
 
+//Currently unused, using SSG for cards instead
+
 export default function useCards() {
     const [cards, setCards] = useState({});
     useEffect(() => {

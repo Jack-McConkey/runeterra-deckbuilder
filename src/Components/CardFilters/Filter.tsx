@@ -1,17 +1,14 @@
 import Image from "next/image";
 import styles from "./CardFilters.module.css";
 
-export default function Filter({
-    onFilter,
-    filterCategory,
-    filterOption,
-    active,
-}: {
+interface FilterProps {
     onFilter: (filterCategory: string, filterOption: string | number) => void;
     filterCategory: string;
     filterOption: string | number;
     active: boolean;
-}) {
+}
+
+export default function Filter({onFilter, filterCategory, filterOption, active}: FilterProps) {
     const handleClick = () => {
         onFilter(filterCategory, filterOption);
     };

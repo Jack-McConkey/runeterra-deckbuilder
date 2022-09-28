@@ -5,15 +5,17 @@ import {generateDeckCode} from "../../../utils/generateDeck";
 import styles from "./SaveDeck.module.css";
 import {trpc} from "../../../utils/trpc";
 
+interface SaveDeckProps {
+    cancelSave: () => void;
+    selectedCards: SelectedCard;
+    clearDeck: () => void;
+}
+
 export default function SaveDeck({
     cancelSave,
     selectedCards,
     clearDeck,
-}: {
-    cancelSave: () => void;
-    selectedCards: SelectedCard;
-    clearDeck: () => void;
-}) {
+}: SaveDeckProps) {
     const [deckCode, setDeckCode] = useState("");
     const [copiedCode, setCopiedCode] = useState(false);
     const copyToClipboard = () => {

@@ -46,10 +46,11 @@
 .filters-modal {
     position: fixed;
     height: fit-content;
-    width: 60%;
+    width: clamp(800px, 70%, 1200px);
+    max-height: 90vh;
     inset: 0;
     margin-inline: auto;
-    margin-top: 20rem;
+    margin-top: 5rem;
     border-radius: 8px;
     padding: 2rem;
     color: var(--neutral);

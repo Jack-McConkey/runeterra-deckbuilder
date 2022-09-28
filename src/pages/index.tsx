@@ -6,7 +6,6 @@ import {prisma} from "../db/client";
 import {RuneterraCard} from "../Components/DeckBuilder/types";
 import {CardContext} from "../Components/Contexts/CardContext";
 import RiotDisclosure from "../Components/RiotDisclosure/RiotDisclosure";
-import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
 
 export async function getStaticProps() {
     const res = await prisma.cards.findMany({
@@ -18,20 +17,21 @@ export async function getStaticProps() {
         },
     });
 
-    const data = res.reduce<RuneterraCard[]>((newCards, {card}: any) => {
-        newCards.push(card);
-        return newCards;
-    }, []);
-
-    const cards = data
-        .sort(({cost: a}, {cost: b}) => a - b)
-        .sort(({rarity: a}, {rarity: b}) => {
-            if (a === b) return 0;
-            if (a === "Champion") return -1;
-            return 0;
+    const cards = res
+        .sort(({card: cardA}, {card: cardB}) => {
+            const {cost: costA} = cardA as unknown as RuneterraCard;
+            const {cost: costB} = cardB as unknown as RuneterraCard;
+            const {rarity: rarityA} = cardA as unknown as RuneterraCard;
+            const {rarity: rarityB} = cardB as unknown as RuneterraCard;
+            if (rarityA !== rarityB) {
+                if (rarityA === "Champion") return -1;
+                if (rarityB === "Champion") return 1;
+            }
+            return costA - costB;
         })
-        .reduce<{[key: string]: RuneterraCard}>((obj, card) => {
-            obj[card.cardCode] = card;
+        .reduce<{[key: string]: RuneterraCard}>((obj, {card}) => {
+            const {cardCode} = card as unknown as RuneterraCard;
+            obj[cardCode] = card as unknown as RuneterraCard;
             return obj;
         }, {});
 
@@ -55,7 +55,6 @@ const Home: NextPage<{cards: {[key: string]: RuneterraCard}}> = ({cards}) => {
             <footer>
                 <RiotDisclosure />
             </footer>
-            <ReactQueryDevtools initialIsOpen={true} />
         </div>
     );
 };
