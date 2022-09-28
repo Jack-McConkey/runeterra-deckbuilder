@@ -4,6 +4,7 @@
     position: relative;
     min-height: 376px;
     min-width: 250px;
+    max-width: 75%;
     background: none;
     border: none;
     border-radius: 8px;
@@ -50,5 +51,6 @@
     .card-container {
         min-height: 240px;
         min-width: 120px;
+        max-width: 95%;
     }
 }

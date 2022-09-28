@@ -2,7 +2,7 @@
     max-width: 1440px;
     width: 98%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-inline: auto;
     padding: 2rem;
     margin-bottom: 2rem;
@@ -17,7 +17,7 @@
     font-style: italic;
     font-size: 2.5rem;
 }
-
+/* 
 .nav {
     display: flex;
 }
@@ -113,4 +113,4 @@
     .hamburger:focus:after {
         outline: 1px solid var(--accent);
     }
-}
+} */
