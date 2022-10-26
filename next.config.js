@@ -1,22 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-    reactStrictMode: true,
-    swcMinify: true,
-    experimental: {
-        images: {
-            allowFutureImage: true,
-        },
-    },
-    images: {
-        domains: ["dd.b.pvp.net", "res.cloudinary.com"],
-    },
-};
 
+//Todo
 const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self';
-  style-src 'self' https://fonts.google.com/;
-  font-src 'self';
+  style-src 'self';
+  font-src 'self' https://fonts.google.com/*;
+  img-src '*';
 `;
 
 const securityHeaders = [
@@ -28,13 +18,19 @@ const securityHeaders = [
         key: "Referrer-Policy",
         value: "no-referrer",
     },
-    {
-        key: "Content-Security-Policy",
-        value: ContentSecurityPolicy.replace(/\s{2,}/g, " ").trim(),
-    },
 ];
 
-module.exports = {
+const nextConfig = {
+    reactStrictMode: true,
+    swcMinify: true,
+    experimental: {
+        images: {
+            allowFutureImage: true,
+        },
+    },
+    images: {
+        domains: ["dd.b.pvp.net", "res.cloudinary.com"],
+    },
     async headers() {
         return [
             {

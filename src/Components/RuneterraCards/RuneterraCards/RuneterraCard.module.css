@@ -4,11 +4,11 @@
     position: relative;
     min-height: 376px;
     min-width: 250px;
-    max-width: 75%;
+    max-width: 300px;
     background: none;
     border: none;
     border-radius: 8px;
-    transition: transform 0.02s ease-in;
+    transition: transform 0.15s ease-in;
     cursor: pointer;
 }
 
@@ -39,7 +39,7 @@
 
 @media (hover: hover) {
     .card-container:hover {
-        transform: scale(1.02);
+        transform: scale(0.95);
     }
 
     .invalid:hover {
@@ -50,7 +50,7 @@
 @media (max-width: 800px) {
     .card-container {
         min-height: 240px;
-        min-width: 120px;
-        max-width: 95%;
+        min-width: 200px;
+        max-width: 80%;
     }
 }
