@@ -26,71 +26,27 @@
 }
 
 .detailed-card-modal {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    margin-inline: auto;
-    margin-top: 20rem;
-    padding: 2rem;
-    width: clamp(600px, 900px, 60vw);
-    height: max-content;
-    border-radius: 8px;
-    background-color: var(--primary-dark);
-    color: var(--neutral);
-    gap: 1rem;
-    position: fixed;
-    inset: 0;
-    overflow-y: auto;
 }
 
 .filters-modal {
-    position: fixed;
-    height: fit-content;
     width: clamp(800px, 70%, 1200px);
     max-height: 90vh;
-    inset: 0;
-    margin-inline: auto;
     margin-top: 5rem;
-    border-radius: 8px;
-    padding: 2rem;
-    color: var(--neutral);
-    background-color: var(--primary-dark);
     z-index: 1000;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
     gap: 2rem;
 }
 
 .deck-info-modal {
-    background-color: var(--primary-dark);
-    inset: 0;
-    display: flex;
-    flex-direction: column;
     gap: 2rem;
-    color: var(--neutral);
     width: fit-content;
-    margin-inline: auto;
-    border-radius: 8px;
-    padding: 2rem;
     margin-top: 10rem;
 }
 
 .save-deck-modal {
-    position: fixed;
     height: fit-content;
     width: fit-content;
-    inset: 0;
-    margin-inline: auto;
-    margin-top: 20rem;
-    border-radius: 8px;
-    padding: 2rem;
-    color: var(--neutral);
-    background-color: var(--primary-dark);
     z-index: 1000;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
     gap: 2rem;
 }
 
@@ -105,6 +61,11 @@
         height: 100vh;
         overflow-y: auto;
     }
+
+    .filters-modal {
+        min-height: 100vh;
+    }
+
     .nav-modal {
         background-color: var(--primary-dark);
         inset: 0;
@@ -116,8 +77,16 @@
         animation: slide-in 0.5s ease-in;
     }
 
+    .detailed-card-modal {
+        height: fit-content;
+        margin-block: auto;
+        max-height: 100vh;
+        overflow-y: auto;
+    }
+
     .save-deck-modal {
         height: fit-content;
+        max-height: 100vh;
         margin-block: auto;
     }
 

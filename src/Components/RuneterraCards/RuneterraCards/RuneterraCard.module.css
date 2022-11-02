@@ -47,10 +47,10 @@
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
     .card-container {
         min-height: 240px;
-        min-width: 200px;
+        min-width: 160px;
         max-width: 80%;
     }
 }
